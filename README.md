@@ -1,6 +1,6 @@
 # PHP RenameKeys
 
-This PHP function could be used to automatic rename keys from a object ou a array (single or multidimensional).
+This PHP function could be used to automatic rename keys from a object or a array (single or multidimensional).
 
 
 Example: Single Arrays
