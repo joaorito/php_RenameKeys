@@ -9,21 +9,41 @@
 include_once ('function.php');
 
 
+
 /** Original array */
 $original = array(
     'DataHora'  => date('YmdHis'),
-    'Produto'   => 'Produto 1',
-    'Preco'     => 10.00,
-    'Quant'     => 2
+    'Produto'   => array(
+        array('Nome' => 'Produto 1', 'Value' => 10.00, 'Estoque' => true),
+        array('Nome' => 'Produto 2', 'Value' => 15.00, 'Estoque' => true),
+        array('Nome' => 'Produto 3', 'Value' => 20.00, 'Estoque' => false)
+    ),
+    'Entrega'   => array(
+        'Logradouro'    => 'Rua Joao, 123',
+        'Cidade'        => 'Sao Paulo',
+        'Estado'        => 'SP',
+        'Telefone'      => array(
+            array('DDD' => '11', 'Telefone' => '928374762'),
+            array('DDD' => '11', 'Telefone' => '675675676'),
+            array('DDD' => '11', 'Telefone' => '9278784762'),
+        )
+    )
 );
 
 
 /** Map of keys to replace */
 $map = array(
-    'DataHora'  => 'Date',
-    'Produto'   => 'Product',
-    'Preco'     => 'Price',
-    'Quant'     => 'Amount'
+    'DataHora'      => 'Date',
+    'Produto'       => 'Product',
+    'Nome'          => 'Name',
+    'Preco'         => 'Price',
+    'Estoque'       => 'Avaiable',
+    'Entrega'       => 'Delivery',
+    'Logradouro'    => 'Address',
+    'Cidade'        => 'City',
+    'Estado'        => 'State',
+    'DDD'           => 'Area Code',
+    'Telefone'      => 'Phone'
 );
 
 $new = replaceKey($original,$map);
